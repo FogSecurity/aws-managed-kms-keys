@@ -54,3 +54,5 @@ Total: 39 (us-east-1)
 - AWS X-Ray
 
 ## AWS Managed KMS Keys and their Key Policies
+
+For corresponding AWS Managed KMS Keys and their Key Policies, please see files in repository that correspond to each AWS Managed KMS Key by service alias.
