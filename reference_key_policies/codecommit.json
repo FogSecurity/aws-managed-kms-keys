@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "codecommit.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "codecommit.us-east-1.amazonaws.com"
       }
     }
   }, {

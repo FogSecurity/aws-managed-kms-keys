@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "cloud9.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "cloud9.us-east-1.amazonaws.com"
       }
     }
   }, {
