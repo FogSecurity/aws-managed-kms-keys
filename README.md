@@ -12,6 +12,7 @@ AWS Managed KMS Keys:
 - `DescribeKey` is typically non-mutating.  But AWS services use `DescribeKey` to create AWS managed keys from a predefined AWS alias with no key ID.
 - There is no cost for creation and storage of AWS managed keys.
 - AWS completely manages properties of AWS managed keys, key rotation, their key policies, and their deletion schedule.  Thus, you cannot manage them.  The AWS service that creates them uses them on your behalf.
+- AWS Managed Keys may be difficult to use for cross-account operations.  For example, from [documentation for the S3 AWS Managed Key](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html): 'If you want to grant cross-account access to your S3 objects, use a customer managed key.'
 
 Impact:
 - Implicit Access for Applications and other IAM Principals.
