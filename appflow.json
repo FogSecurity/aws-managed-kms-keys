@@ -1,0 +1,63 @@
+{
+  "Version" : "2012-10-17",
+  "Id" : "auto-appflow-2",
+  "Statement" : [ {
+    "Sid" : "Allow access through Amazon AppFlow for all principals in the account that are authorized to use Amazon AppFlow",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:CreateGrant", "kms:DescribeKey" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "appflow.us-east-1.amazonaws.com",
+        "kms:CallerAccount" : "123412341234"
+      }
+    }
+  }, {
+    "Sid" : "Allow direct access to key metadata to the account",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::123412341234:root"
+    },
+    "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant" ],
+    "Resource" : "*"
+  }, {
+    "Sid" : "Allow AppFlow Service with service principal name appflow.amazonaws.com to describe the key directly",
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "appflow.amazonaws.com"
+    },
+    "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*" ],
+    "Resource" : "*"
+  }, {
+    "Sid" : "Allow access through S3 for all principals in the account that are authorized to use S3",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : "kms:Decrypt",
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "s3.us-east-1.amazonaws.com",
+        "kms:CallerAccount" : "123412341234"
+      }
+    }
+  }, {
+    "Sid" : "Allow access through SecretManager for all principals in the account that are authorized to use SecretManager",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:CreateGrant", "kms:DescribeKey" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "secretsmanager.us-east-1.amazonaws.com",
+        "kms:CallerAccount" : "123412341234"
+      }
+    }
+  } ]
+}
