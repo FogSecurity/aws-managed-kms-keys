@@ -2,7 +2,7 @@
 
 While researching AWS KMS Keys and their security and access implications, we found it difficult to correlate all services that support AWS Managed KMS Keys. Visibility of usage of [AWS Managed KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) and their corresponding key policies can be low and may have security and application implications.  AWS Managed KMS Keys are keys managed by AWS but exist within your own AWS Account with corresponding key policies.  These sometimes are the default key applied to resources.  
 
-This repository contains a listing of AWS Managed KMS Keys and their associated policies.  There's a periodic scheduled job that will run and update the listings and data.
+This repository contains a listing of AWS Managed KMS Keys and their associated policies in `/reference_key_policies`.  There's a periodic scheduled job that will run and update the listings and data.
 
 AWS Managed KMS Keys:
 - There's no central documentation on which AWS Services provide AWS Managed KMS Keys.  There are service-specific pages, but no central place to review available encryption options and provided AWS Managed KMS Keys.
@@ -68,3 +68,35 @@ For corresponding AWS Managed KMS Keys and their Key Policies, please see files 
 ### Notes
 - Key policies are pulled from a reference AWS Account and the Account Number is scrubbed and changed to the placeholder '123412341234'.
 - All key policies are pulled from AWS region `us-east-1`
+
+### Example Key Policy (S3 AWS Managed Key)
+
+```json
+  {
+    "Version" : "2012-10-17",
+    "Id" : "auto-s3-2",
+    "Statement" : [ {
+      "Sid" : "Allow access through S3 for all principals in the account that are authorized to use S3",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:DescribeKey" ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "kms:CallerAccount" : "123412341234",
+          "kms:ViaService" : "s3.us-east-1.amazonaws.com"
+        }
+      }
+    }, {
+      "Sid" : "Allow direct access to key metadata to the account",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "arn:aws:iam::123412341234:root"
+      },
+      "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*" ],
+      "Resource" : "*"
+    } ]
+  }
+```
