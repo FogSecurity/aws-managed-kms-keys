@@ -2,6 +2,12 @@
 
 While researching AWS KMS Keys and their security and access implications, we found it difficult to correlate all services that support AWS Managed KMS Keys.
 
+Visibility of usage of AWS Managed KMS Keys and their corresponding key policies can be low and may have security and application implications.  
+
+- Implicit Access for Applications and other IAM Principals.
+- Application Architecture and Account and Region Boundaries.
+- AWS Managed Keys may differ by service with different conditions and policy blocks.
+
 ## Interesting Notes
 
 * In-use AWS Managed KMS Keys do not always appear in KMS (Console or via ListKeys API).
