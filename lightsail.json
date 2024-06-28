@@ -1,0 +1,35 @@
+{
+  "Version" : "2012-10-17",
+  "Id" : "auto-lightsail-1",
+  "Statement" : [ {
+    "Sid" : "Allow access through Lightsail for all principals in the account that are authorized to use Lightsail",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:DescribeKey" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "lightsail.us-east-1.amazonaws.com",
+        "kms:CallerAccount" : "123412341234"
+      }
+    }
+  }, {
+    "Sid" : "Allow direct access to key metadata to the account",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::123412341234:root"
+    },
+    "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*" ],
+    "Resource" : "*"
+  }, {
+    "Sid" : "Allow Lightsail with service principal name lightsail.amazonaws.com to describe the key directly",
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "lightsail.amazonaws.com"
+    },
+    "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*" ],
+    "Resource" : "*"
+  } ]
+}
