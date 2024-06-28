@@ -56,3 +56,7 @@ Total: 39 (us-east-1)
 ## AWS Managed KMS Keys and their Key Policies
 
 For corresponding AWS Managed KMS Keys and their Key Policies, please see files in repository that correspond to each AWS Managed KMS Key by service alias.
+
+### Notes
+- Key policies are pulled from a reference AWS Account and the Account Number is scrubbed and changed to the placeholder '123412341234'.
+- All key policies are pulled from AWS region `us-east-1`
