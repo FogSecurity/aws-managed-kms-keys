@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "appflow.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "appflow.us-east-1.amazonaws.com"
       }
     }
   }, {
@@ -41,8 +41,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "s3.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "s3.us-east-1.amazonaws.com"
       }
     }
   }, {
@@ -55,8 +55,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "secretsmanager.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "secretsmanager.us-east-1.amazonaws.com"
       }
     }
   } ]
