@@ -29,7 +29,7 @@ Total: 39 (us-east-1)
 - Amazon Elastic Container Registry (Amazon ECR)
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 - Amazon ElastiCache
-- Amazon Elastic File System (EFS)\
+- Amazon Elastic File System (EFS)
 - Amazon OpenSearch Service
 - Amazon FSx
 - AWS Glue
