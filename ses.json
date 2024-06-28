@@ -1,0 +1,38 @@
+{
+  "Version" : "2012-10-17",
+  "Id" : "auto-ses-2",
+  "Statement" : [ {
+    "Sid" : "Allow SES to encrypt messages belonging to this account",
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "ses.us-east-1.amazonaws.com"
+    },
+    "Action" : [ "kms:Encrypt", "kms:GenerateDataKey*" ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:EncryptionContext:aws:ses:source-account" : "123412341234"
+      },
+      "Null" : {
+        "kms:EncryptionContext:aws:ses:message-id" : "false",
+        "kms:EncryptionContext:aws:ses:rule-name" : "false"
+      }
+    }
+  }, {
+    "Sid" : "Allow SES to describe this key",
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "ses.us-east-1.amazonaws.com"
+    },
+    "Action" : "kms:DescribeKey",
+    "Resource" : "*"
+  }, {
+    "Sid" : "Allow direct access to key metadata & decryption to the account",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::123412341234:root"
+    },
+    "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:Decrypt", "kms:ReEncryptFrom" ],
+    "Resource" : "*"
+  } ]
+}
