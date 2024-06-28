@@ -10,6 +10,8 @@ While researching AWS KMS Keys and their security and access implications, we fo
 
 * `DescribeKey` is typically non-mutating.  But AWS services use `DescribeKey` to create AWS managed keys from a predefined AWS alias with no key ID.
 
+* There is no cost for creation and storage of AWS managed keys.
+
 ## Services that have support for AWS Managed Keys
 
 Total: 39 (us-east-1)
