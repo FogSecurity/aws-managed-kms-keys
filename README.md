@@ -1,7 +1,7 @@
 # AWS Managed KMS Keys Tracker
 
 Fog Security: https://www.fogsecurity.io/
-Corresponding Release Blog POst: https://www.fogsecurity.io/blog/encryption-aws-managed-kms-keys
+Corresponding Release Blog Post: https://www.fogsecurity.io/blog/encryption-aws-managed-kms-keys
 
 While researching AWS KMS Keys and their security and access implications, we found it difficult to correlate all services that support AWS Managed KMS Keys. Visibility of usage of [AWS Managed KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) and their corresponding key policies can be low and may have security and application implications.  AWS Managed KMS Keys are keys managed by AWS but exist within your own AWS Account with corresponding key policies.  These sometimes are the default key applied to resources.  
 
