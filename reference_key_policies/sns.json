@@ -1,6 +1,6 @@
 {
   "Version" : "2012-10-17",
-  "Id" : "auto-sns-1",
+  "Id" : "auto-sns-2",
   "Statement" : [ {
     "Sid" : "Allow access through SNS for all principals in the account that are authorized to use SNS",
     "Effect" : "Allow",
@@ -23,5 +23,21 @@
     },
     "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant" ],
     "Resource" : "*"
+  }, {
+    "Sid" : "Allow SNS to decrypt archived messages",
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "sns.amazonaws.com"
+    },
+    "Action" : "kms:Decrypt",
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "aws:SourceAccount" : "123412341234"
+      },
+      "ArnLike" : {
+        "aws:SourceArn" : "arn:*:sns:us-east-1:123412341234:*"
+      }
+    }
   } ]
 }
