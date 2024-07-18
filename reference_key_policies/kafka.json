@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:CallerAccount" : "123412341234",
-        "kms:ViaService" : "kafka.us-east-1.amazonaws.com"
+        "kms:ViaService" : "kafka.us-east-1.amazonaws.com",
+        "kms:CallerAccount" : "123412341234"
       }
     }
   }, {
