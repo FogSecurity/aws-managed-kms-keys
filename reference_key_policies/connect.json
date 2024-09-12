@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "connect.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "connect.us-east-1.amazonaws.com"
       }
     }
   }, {
@@ -67,8 +67,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "s3.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "s3.us-east-1.amazonaws.com"
       }
     }
   }, {
@@ -81,8 +81,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "kinesisvideo.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "kinesisvideo.us-east-1.amazonaws.com"
       }
     }
   } ]
