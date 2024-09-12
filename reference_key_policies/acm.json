@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "acm.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "acm.us-east-1.amazonaws.com"
       },
       "ForAllValues:StringEquals" : {
         "kms:GrantOperations" : "Decrypt"
@@ -31,8 +31,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "acm.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "acm.us-east-1.amazonaws.com"
       },
       "ForAllValues:StringEquals" : {
         "kms:GrantOperations" : [ "Encrypt", "ReEncryptFrom", "ReEncryptTo" ]
@@ -77,8 +77,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "acm.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "acm.us-east-1.amazonaws.com"
       }
     }
   } ]
