@@ -11,8 +11,8 @@
     "Resource" : "*",
     "Condition" : {
       "StringEquals" : {
-        "kms:ViaService" : "lightsail.us-east-1.amazonaws.com",
-        "kms:CallerAccount" : "123412341234"
+        "kms:CallerAccount" : "123412341234",
+        "kms:ViaService" : "lightsail.us-east-1.amazonaws.com"
       }
     }
   }, {
