@@ -14,8 +14,8 @@
         "kms:EncryptionContext:aws:ses:source-account" : "123412341234"
       },
       "Null" : {
-        "kms:EncryptionContext:aws:ses:message-id" : "false",
-        "kms:EncryptionContext:aws:ses:rule-name" : "false"
+        "kms:EncryptionContext:aws:ses:rule-name" : "false",
+        "kms:EncryptionContext:aws:ses:message-id" : "false"
       }
     }
   }, {
